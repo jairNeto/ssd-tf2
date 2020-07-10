@@ -17,7 +17,7 @@ def get_annotation(anno_file):
     objects = []
     for obj in tree.findall('object'):
         obj_struct = {}
-        obj_struct['name'] = obj.find('name').text
+        obj_struct['label'] = obj.find('label').text
         obj_struct['pose'] = obj.find('pose').text
         obj_struct['truncated'] = int(obj.find('truncated').text)
         obj_struct['difficult'] = int(obj.find('difficult').text)
@@ -71,7 +71,7 @@ def voc_eval(det_path, anno_path, cls_name, iou_thresh=0.5, use_07_metric=False)
         if image_id in cls_gts.keys():
             continue
         gts[image_id] = get_annotation(anno_path.format(image_id))
-        R = [obj for obj in gts[image_id] if obj['name'] == cls_name]
+        R = [obj for obj in gts[image_id] if obj['label'] == cls_name]
         gt_boxes = np.array([x['bbox'] for x in R])
         difficult = np.array([x['difficult'] for x in R]).astype(np.bool)
         det = [False] * len(R)

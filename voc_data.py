@@ -92,7 +92,7 @@ class VOCDataset():
         labels = []
 
         for obj in objects:
-            name = obj.find('name').text.lower().strip()
+            name = obj.find('label').text.lower().strip()
             bndbox = obj.find('bndbox')
             xmin = (float(bndbox.find('xmin').text) - 1) / w
             ymin = (float(bndbox.find('ymin').text) - 1) / h
