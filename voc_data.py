@@ -24,7 +24,7 @@ class VOCDataset():
                  new_size, num_examples=-1, augmentation=None):
         super(VOCDataset, self).__init__()
         self.idx_to_name = [
-            'aeroplane', 'bicycle', 'bird', 'boat',
+            'excel', 'word', 'powerpoint', 'news',
             'bottle', 'bus', 'car', 'cat', 'chair',
             'cow', 'diningtable', 'dog', 'horse',
             'motorbike', 'person', 'pottedplant',
