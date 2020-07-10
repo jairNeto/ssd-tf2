@@ -113,10 +113,10 @@ if __name__ == '__main__':
         boxes, classes, scores = predict(imgs, default_boxes)
         filename = filename.numpy()[0].decode()
         original_image = Image.open(
-            os.path.join(info['image_dir'], '{}.jpg'.format(filename)))
+            os.path.join(info['image_dir'], '{}.png'.format(filename)))
         boxes *= original_image.size * 2
         visualizer.save_image(
-            original_image, boxes, classes, '{}.jpg'.format(filename))
+            original_image, boxes, classes, '{}.png'.format(filename))
 
         log_file = os.path.join('outputs/detects', '{}.txt')
 

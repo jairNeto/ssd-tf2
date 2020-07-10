@@ -66,7 +66,7 @@ class VOCDataset():
             img: tensor of shape (3, 300, 300)
         """
         filename = self.ids[index]
-        img_path = os.path.join(self.image_dir, filename + '.jpg')
+        img_path = os.path.join(self.image_dir, filename + '.png')
         img = Image.open(img_path)
 
         return img
